@@ -13,7 +13,7 @@ if ($_POST['__FILE__'] == "duitesSiteName") {
         $guards = $pdo->customQuery("SELECT * FROM registration
 
         
-            WHERE registration.status != 'Expired' AND registration.status = 'Verified' AND NOT EXISTS(SELECT 1 FROM duties WHERE registration.id = duties.id) AND availability LIKE '%".date("l", strtotime($site[0]['date']))."%'");
+            WHERE registration.status != 'Expired' AND registration.status = 'Verified' AND NOT EXISTS(SELECT * FROM duties WHERE registration.id = duties.id AND duties.status != 'Completed') AND availability LIKE '%".date("l", strtotime($site[0]['date']))."%'");
         
 
        
@@ -22,7 +22,7 @@ if ($_POST['__FILE__'] == "duitesSiteName") {
             $guards = $pdo->customQuery("SELECT * FROM registration
             
             
-            WHERE registration.status != 'Expired' AND registration.status = 'Verified' AND NOT EXISTS(SELECT 1 FROM duties WHERE registration.id = duties.id) AND state = '{$site[0]['state']}' AND availability LIKE '%".date("l", strtotime($site[0]['date']))."%'");
+            WHERE registration.status != 'Expired' AND registration.status = 'Verified' AND NOT EXISTS(SELECT * FROM duties WHERE registration.id = duties.id AND duties.status != 'Completed') AND state = '{$site[0]['state']}' AND availability LIKE '%".date("l", strtotime($site[0]['date']))."%'");
 
             echo json_encode([
                 $site[0]['date'], 
@@ -54,7 +54,7 @@ if ($_POST['__FILE__'] == "duitesSiteName") {
             $guards = $pdo->customQuery("SELECT * FROM registration
 
             
-                WHERE registration.status != 'Expired' AND registration.status = 'Verified' AND NOT EXISTS(SELECT 1 FROM duties WHERE registration.id = duties.id) AND availability LIKE '%".date("l", strtotime($site[0]['date']))."%'");
+                WHERE registration.status != 'Expired' AND registration.status = 'Verified' AND NOT EXISTS(SELECT * FROM duties WHERE registration.id = duties.id AND duties.status != 'Completed') AND availability LIKE '%".date("l", strtotime($site[0]['date']))."%'");
             
     
            

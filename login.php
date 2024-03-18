@@ -24,7 +24,7 @@ if (isset($_POST['username'])) {
 
             
             if ($_SESSION['guardmark_role_id'] == 1) {
-                header('location:site_registration.php');
+                header('location:dashboard.php');
             } else if ($_SESSION['guardmark_role_id'] == 3) {
                 header('location:guard_duties.php');
             }

@@ -4,18 +4,6 @@
 <?php require_once 'assets/includes/head.php'; ?>
 <?php
 
-if (isset($_GET['theme']) && $_GET['theme'] == "dark") {
-    $pdo->update("settings", ['id'=>1], ['theme'=>"dark"]);
-    header("location:site_registration.php");
-} else if(isset($_GET['theme']) && $_GET['theme'] == "light") {
-    $pdo->update("settings", ['id'=>1], ['theme'=>"light"]);
-    header("location:site_registration.php");
-
-}else if(isset($_GET['theme']) && $_GET['theme'] == "full_white") {
-    $pdo->update("settings", ['id'=>1], ['theme'=>"full_white"]);
-    header("location:site_registration.php");
-
-}
 $success = "";
 $error = "";
 $id = "";
