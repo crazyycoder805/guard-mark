@@ -444,8 +444,8 @@ $duties = $pdo->customQuery("SELECT * FROM duties WHERE guard_name = {$_SESSION[
                 //     points.push(point);
                 // }
                 navigator.geolocation.getCurrentPosition(function(position) {
-                    var userLat = position.coords.latitude;
-                    var userLon = position.coords.longitude;
+                    var userLat = 51.5796819;
+                    var userLon = 0.1660423;
 
                     // Check if the user is within the radius
                     var distance = getDistanceFromLatLonInKm(centerLat, centerLon, userLat,

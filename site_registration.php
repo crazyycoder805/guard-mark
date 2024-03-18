@@ -16,13 +16,13 @@ if (isset($_POST['add_site_registration_btn'])) {
     if (!empty($_POST['site_name']) && !empty($_POST['date']) && !empty($_POST['site_registration_date']) && 
     !empty($_POST['time_in']) && !empty($_POST['time_out']) && !empty($_POST['duty_hrs']) && !empty($_POST['pro_name']) && !empty($_POST['site_address'])
     && !empty($_POST['city']) && !empty($_POST['postal_code']) && !empty($_POST['notes']) && !empty($_POST['fuel']) && !empty($_POST['expenses']) && !empty($_POST['travel']) && !empty($_POST['lgs'])
-    && !empty($_POST['company_name']) && !empty($_POST['additional_note']) && !empty($_POST['address']) && !empty($_POST['address_2']) 
+    && !empty($_POST['company_name']) && !empty($_POST['additional_note']) && !empty($_POST['address']) 
     
     && !empty($_POST['country']) && !empty($_POST['state']) && !empty($_POST['state']) && !empty($_POST['part']) && !empty($_POST['city'])
     ) {
             if ($pdo->create("site_registration", ['site_name' => $_POST['site_name'], 'date' => $_POST['date'], 'site_registration_date' => $_POST['site_registration_date']
             , 'time_in' => $_POST['time_in'], 'time_out' => $_POST['time_out'], 'duty_hrs' => $_POST['duty_hrs'], 
-              'pro_name' => $_POST['pro_name'], 'site_address' => $_POST['site_address'], 'city' => $_POST['city'], 
+              'pro_name' => $_POST['pro_name'], 'city' => $_POST['city'], 
             'postal_code' => $_POST['postal_code'], 'notes' => $_POST['notes'], 'fuel' => $_POST['fuel'], 'expenses' => $_POST['expenses'], 'travel' => $_POST['travel'], 'lgs' => $_POST['lgs'], 
             'company_name' => $_POST['company_name'], 'additional_note' => $_POST['additional_note'], 'status' => $_POST['status'], 'address_2' => $_POST['address_2'], 'address' => $_POST['address'],
             'country' => $_POST['country'], 'state' => $_POST['state'],
@@ -44,7 +44,7 @@ if (isset($_POST['add_site_registration_btn'])) {
     && !empty($_POST['company_name']) && !empty($_POST['additional_note']) && !empty($_POST['country']) && !empty($_POST['state']) && !empty($_POST['state']) && !empty($_POST['part']) && !empty($_POST['city'])) {
         if ($pdo->update("site_registration", ['id' => $_GET['edit_site']], ['site_name' => $_POST['site_name'], 'date' => $_POST['date'], 'site_registration_date' => $_POST['site_registration_date']
         , 'time_in' => $_POST['time_in'], 'time_out' => $_POST['time_out'], 'duty_hrs' => $_POST['duty_hrs'], 
-          'pro_name' => $_POST['pro_name'], 'site_address' => $_POST['site_address'], 'city' => $_POST['city'], 
+          'pro_name' => $_POST['pro_name'], 'city' => $_POST['city'], 
         'postal_code' => $_POST['postal_code'], 'notes' => $_POST['notes'], 'fuel' => $_POST['fuel'], 'expenses' => $_POST['expenses'], 'travel' => $_POST['travel'], 'lgs' => $_POST['lgs'], 
         'company_name' => $_POST['company_name'], 'additional_note' => $_POST['additional_note'], 'status' => $_POST['status'], 'address_2' => $_POST['address_2'], 'address' => $_POST['address'],
         'country' => $_POST['country'], 'state' => $_POST['state'],
@@ -224,19 +224,7 @@ if (isset($_GET['edit_site'])) {
                                                 </div>
 
                                             </div>
-                                            <div class="row">
-
-                                                <div class="col-md">
-
-                                                    <div class="form-group">
-                                                        <label for="site_address" class="col-form-label">Site
-                                                            address</label>
-                                                        <textarea class="form-control" placeholder="Site Address"
-                                                            name="site_address"
-                                                            id="site_address"><?php echo isset($_GET['edit_site']) ? $id[0]['site_address'] : null;echo isset($_POST['site_address']) ? $_POST['site_address'] : null; ?></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
 
                                             <div class="border">
                                                 <div class="row m-1">
@@ -254,7 +242,7 @@ if (isset($_GET['edit_site'])) {
 
                                                         <div class="form-group">
                                                             <label for="address_2" class="col-form-label">Address line
-                                                                2</label>
+                                                                2 <b>(Optional)</b></label>
                                                             <textarea class="form-control" placeholder="Address Line 2"
                                                                 name="address_2"
                                                                 id="address_2"><?php echo isset($_GET['edit_site']) ? $id[0]['address_2'] : null;echo !isset($_GET['edit_site']) && isset($_POST['address_2']) ? $_POST['address_2'] : null; ?></textarea>
@@ -486,7 +474,6 @@ if (isset($_GET['edit_site'])) {
                                                         <th>Time out</th>
                                                         <th>Duty hrs</th>
                                                         <th>Pro name</th>
-                                                        <th>Site address</th>
                                                         <th>City</th>
                                                         <th>Postal code</th>
                                                         <th>Notes</th>
@@ -517,7 +504,6 @@ if (isset($_GET['edit_site'])) {
                                                         <td><?php echo $sr['time_out']; ?></td>
                                                         <td><?php echo $sr['duty_hrs']; ?></td>
                                                         <td><?php echo $sr['pro_name']; ?></td>
-                                                        <td><?php echo $sr['site_address']; ?></td>
                                                         <td><?php echo $sr['city']; ?></td>
                                                         <td><?php echo $sr['postal_code']; ?></td>
                                                         <td><?php echo $sr['notes']; ?></td>

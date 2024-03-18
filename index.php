@@ -45,7 +45,7 @@ require_once 'assets/includes/head.php';
                     <div class="ad-auth-content">
                         <form method="post">
                             <a href="index-2.html" class="ad-auth-logo">
-                                <img src="assets/images/ovalfox/logo.png" alt="" />
+                                <img height="120" width="120" src="assets/guardmark/images/rap.png" alt="" />
                             </a>
 
 
